@@ -36,6 +36,7 @@ public class ProjektKP {
     static void prepareBrowser(){
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+        Wait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     }
 
     @BeforeEach
@@ -230,7 +231,6 @@ public class ProjektKP {
         WebElement trashButton= driver.findElement(By.className("cart_quantity_delete"));
         Thread.sleep(2000);
         trashButton.click();
-        Wait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.invisibilityOf(trashButton));
 
         // sprawdzam, czy produkt został usunięty
